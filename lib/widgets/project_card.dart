@@ -18,13 +18,15 @@ class _ProjectCardState extends State<ProjectCard> {
   List<String> repos = [
     'WhatsApp UI clone',
     'Cowin Slot Finder',
-    'Wallpaper Hub App'
+    'Wallpaper Hub App',
+    'Black Hole Animation',
   ];
 
   final List<String> _url = [
     'https://github.com/Arun-Prakash-Dev/WhatsApp-UI-Clone--Flutter',
     'https://github.com/Arun-Prakash-Dev/Cowin-Slot-Finder-App',
-    'https://github.com/Arun-Prakash-Dev/WALLPAPER_HUB'
+    'https://github.com/Arun-Prakash-Dev/WALLPAPER_HUB',
+    'https://github.com/Arun-Prakash-Dev/Black-Hole-animation',
   ];
 
   Future<void> _launchUrl() async {
@@ -45,11 +47,12 @@ class _ProjectCardState extends State<ProjectCard> {
           height: 100,
           child: Card(
             elevation: 2.0,
-            color: Colors.grey[900],
+            color: Colors.black,
             shadowColor: Colors.black87,
             surfaceTintColor: Colors.black54,
             borderOnForeground: false,
             child: InkWell(
+              mouseCursor: SystemMouseCursors.none,
               onTap: () => _launchUrl(),
               child: Column(
                 mainAxisSize: MainAxisSize.min,

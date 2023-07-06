@@ -19,7 +19,7 @@ class _DashboardState extends State<Dashboard> {
     double width = MediaQuery.of(context).size.width;
 
     return Container(
-      constraints: BoxConstraints(minWidth: 200, minHeight: 800),
+      constraints: const BoxConstraints(minWidth: 200, minHeight: 800),
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
       color: Colors.black54,

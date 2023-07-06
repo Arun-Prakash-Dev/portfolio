@@ -13,7 +13,8 @@ class Projects extends StatelessWidget {
         children: [
           ProjectCard(index: 0),
           ProjectCard(index: 1),
-          ProjectCard(index: 2)
+          ProjectCard(index: 2),
+          ProjectCard(index: 3),
         ],
       ),
     );
