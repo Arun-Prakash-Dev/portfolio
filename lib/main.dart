@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'Layouts/Desktop_Scaffold.dart';
-import 'Layouts/Mobile_Scaffold.dart';
-import 'Layouts/Responsive_Layouts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,11 +12,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const ResponsiveLayout(
-        mobileScaffold: MobileScaffold(),
-        desktopScaffold: DesktopScaffold(),
-      ),
+      home: DesktopScaffold(),
+      //home: CursorBlending(),
       theme: ThemeData.dark().copyWith(
+        iconTheme: const IconThemeData(color: Colors.white),
         useMaterial3: true,
       ),
     );
