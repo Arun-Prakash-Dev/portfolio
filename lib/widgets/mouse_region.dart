@@ -16,7 +16,6 @@ class _MouseState extends State<Mouse> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
-      hitTestBehavior: HitTestBehavior.translucent,
       cursor: SystemMouseCursors.none,
       onHover: (eve) {
         setState(() {

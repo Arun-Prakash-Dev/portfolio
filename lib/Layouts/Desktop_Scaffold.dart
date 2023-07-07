@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/widgets/dashboard.dart';
 import 'package:my_portfolio/widgets/mouse_region.dart';
 
 class DesktopScaffold extends StatefulWidget {
@@ -13,7 +15,7 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: Colors.black87,
-      body: Mouse(),
+      body: kIsWeb ? Mouse() : Dashboard(),
     );
   }
 }

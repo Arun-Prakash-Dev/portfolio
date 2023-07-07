@@ -60,7 +60,7 @@ class _DashboardState extends State<Dashboard> {
                       softWrap: true,
                       maxLines: 3,
                       style: TextStyle(
-                        fontSize: 50,
+                        fontSize: 45,
                       ),
                       //maxLines: 4,
                     ),
