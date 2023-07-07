@@ -13,7 +13,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: DesktopScaffold(),
-      //home: CursorBlending(),
       theme: ThemeData.dark().copyWith(
         iconTheme: const IconThemeData(color: Colors.white),
         useMaterial3: true,

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/config/Hovering.dart';
+import 'package:my_portfolio/config/Pointer.dart';
 import 'package:my_portfolio/widgets/dashboard.dart';
 
 class Mouse extends StatefulWidget {
@@ -14,6 +16,7 @@ class _MouseState extends State<Mouse> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
+      hitTestBehavior: HitTestBehavior.translucent,
       cursor: SystemMouseCursors.none,
       onHover: (eve) {
         setState(() {
@@ -25,23 +28,24 @@ class _MouseState extends State<Mouse> with TickerProviderStateMixin {
           pointer = eve.position;
         });
       },
-      // onExit: (eve) {
-      //   setState(() {
-      //     pointer = Off;
-      //   });
-      // },
       child: Stack(
         children: [
           const Dashboard(),
           AnimatedPointer(
             pointerOffset: pointer!,
-            radius: 15,
+            radius: 20,
           ),
-          AnimatedPointer(
-            pointerOffset: pointer!,
-            movementDuration: const Duration(milliseconds: 1),
-            radius: 2,
-          )
+          if (!Hovering.hovering) ...[
+            AnimatedPositioned(
+              duration: const Duration(milliseconds: 1),
+              curve: Curves.easeOutExpo,
+              top: pointer?.dy,
+              left: pointer?.dx,
+              child: CustomPaint(
+                painter: Pointer(2),
+              ),
+            ),
+          ]
         ],
       ),
     );
@@ -67,29 +71,8 @@ class AnimatedPointer extends StatelessWidget {
       top: pointerOffset.dy,
       left: pointerOffset.dx,
       child: CustomPaint(
-        painter: Pointer(radius),
+        painter: Hovering.hovering ? Pointer(radius) : HoverPointer(radius),
       ),
     );
-  }
-}
-
-class Pointer extends CustomPainter {
-  final double radius;
-  Pointer(this.radius);
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    canvas.drawCircle(
-      const Offset(0, 0),
-      radius,
-      Paint()
-        ..color = Colors.white
-        ..blendMode = BlendMode.difference,
-    );
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return false;
   }
 }

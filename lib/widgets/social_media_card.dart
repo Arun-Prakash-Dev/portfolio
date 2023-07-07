@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_portfolio/config/Hovering.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SocialMediaCard extends StatefulWidget {
@@ -29,7 +30,12 @@ class _SocialMediaCardState extends State<SocialMediaCard> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               InkWell(
-                //widget.onLinkHovered,
+                onTap: () {},
+                onHover: (value) {
+                  setState(() {
+                    Hovering.hovering = value;
+                  });
+                },
                 child: IconButton(
                   mouseCursor: SystemMouseCursors.none,
                   icon: const Icon(
@@ -39,37 +45,69 @@ class _SocialMediaCardState extends State<SocialMediaCard> {
                       _launchUrl('https://github.com/Arun-Prakash-Dev'),
                 ),
               ),
-              IconButton(
-                mouseCursor: SystemMouseCursors.none,
-                icon: const Icon(
-                  FontAwesomeIcons.instagram,
-                ),
-                onPressed: () =>
-                    _launchUrl('https://www.instagram.com/_.arun._.prakash._/'),
-              ),
-              IconButton(
-                mouseCursor: SystemMouseCursors.none,
-                icon: const Icon(
-                  FontAwesomeIcons.facebook,
-                ),
-                onPressed: () =>
-                    _launchUrl('https://www.facebook.com/arun.edappal.35/'),
-              ),
-              IconButton(
-                mouseCursor: SystemMouseCursors.none,
-                icon: const Icon(
-                  FontAwesomeIcons.twitter,
-                ),
-                onPressed: () =>
-                    _launchUrl('https://twitter.com/ARUNPRA52454514'),
-              ),
-              IconButton(
+              InkWell(
+                onTap: () {},
+                onHover: (value) {
+                  setState(() {
+                    Hovering.hovering = value;
+                  });
+                },
+                child: IconButton(
                   mouseCursor: SystemMouseCursors.none,
                   icon: const Icon(
-                    FontAwesomeIcons.youtube,
+                    FontAwesomeIcons.instagram,
+                  ),
+                  onPressed: () => _launchUrl(
+                      'https://www.instagram.com/_.arun._.prakash._/'),
+                ),
+              ),
+              InkWell(
+                onTap: () {},
+                onHover: (value) {
+                  setState(() {
+                    Hovering.hovering = value;
+                  });
+                },
+                child: IconButton(
+                  mouseCursor: SystemMouseCursors.none,
+                  icon: const Icon(
+                    FontAwesomeIcons.facebook,
                   ),
                   onPressed: () =>
-                      _launchUrl('https://www.youtube.com/@theartist317')),
+                      _launchUrl('https://www.facebook.com/arun.edappal.35/'),
+                ),
+              ),
+              InkWell(
+                onTap: () {},
+                onHover: (value) {
+                  setState(() {
+                    Hovering.hovering = value;
+                  });
+                },
+                child: IconButton(
+                  mouseCursor: SystemMouseCursors.none,
+                  icon: const Icon(
+                    FontAwesomeIcons.twitter,
+                  ),
+                  onPressed: () =>
+                      _launchUrl('https://twitter.com/ARUNPRA52454514'),
+                ),
+              ),
+              InkWell(
+                onTap: () {},
+                onHover: (value) {
+                  setState(() {
+                    Hovering.hovering = value;
+                  });
+                },
+                child: IconButton(
+                    mouseCursor: SystemMouseCursors.none,
+                    icon: const Icon(
+                      FontAwesomeIcons.youtube,
+                    ),
+                    onPressed: () =>
+                        _launchUrl('https://www.youtube.com/@theartist317')),
+              ),
             ],
           ),
         ),
